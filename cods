@@ -15,7 +15,7 @@ c=ARP() creates a new arp header
 d=IP() creates an ip header
 e=ICMP() creates an icmp header
 sendp(a/b/c/d/e, iface="eth0") this command sends layer 2 packets by defining what values to send in argument 1 and defining what interface to use in argument 2
-sendp is for IPv4 and send is for IPv6
+sendp is for Layer 2 and send is for Layer 3
 
 =======================================================================================================================================================
 
