@@ -1,1 +1,72 @@
+==================================== FUNDEMENTALS ====================================
+
+bits
+1     bit
+4     nibble
+8     byte
+16    half word
+32    word
+64    long word
+
+BASE (N) FORMATS
+Common Formats
+
+Base 2 - 01000010 01100001 01110011 01100101 00100000 00110010
+Base 10 - 66 97 115 101 32 49 48
+Base 16 - 42 61 73 65 20 31 36
+Base 64 - QmFzZSA2NA==
+
+can use tools for any conversion related needs like the programming mode calculator built into the workstation
+
+Encapsulation and Decapsulation
+
+Layer 4 - TCP Segment
+Layer 3 - IP Packet
+Layer 2 - Ethernet Frame
+Layer 1 - Bits
+
+PHYSICAL LAYER
+OSI LAYER 1
+
+RESPONSIBILITIES
+
+Hardware Specifications
+Encoding and Signaling
+Data Transmission and Reception
+Physical Network Design
+
+
+DATA LINK LAYER
+OSI LAYER 2
+
+DATA LINK SUB-LAYERS
+
+MAC (Media Access Control)
+LLC (Logical Link Control)
+
+ETHERNET HEADER
+Dest. Mac = 6 bytes |
+Src. Mac  = 6 bytes | - Mac Header/Trailer
+Ethertype = 2 bytes |
+
+Payload/Data/SDU = 46-1500 Bytes
+
+CRC/FCS = 4 Bytes
+
+802.1Q HEADER - adds a VLAN TAG between the Src. Mac and the Ethertype that is 4 bytes
+
+ARP HEADER - downloaded image
+
+Ethertypes
+0x0800  IPv4
+0x0806  ARP
+0x86DD  IPv6
+0x8100  VLAN TAG
+
+
+NETWORK LAYER
+OSI LAYER 3
+
+
+
 
