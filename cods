@@ -15,6 +15,7 @@ c=ARP() creates a new arp header
 d=IP() creates an ip header
 e=ICMP() creates an icmp header
 sendp(a/b/c/d/e, iface="eth0") this command sends layer 2 packets by defining what values to send in argument 1 and defining what interface to use in argument 2
+sendp is for IPv4 and send is for IPv6
 
 =======================================================================================================================================================
 
@@ -129,6 +130,11 @@ Below are a series of useful commands installed on this Internet_Host to use whi
             nc 10.10.0.40 1234 < file
             nc -lvp 1234 > file
 
+to do a MitM attack using arp
+use a=ARP() and then set the op to is-at and change the dst and src ips and macs to spoof your mac and ip as the gateway
+so for one of the packets your destination would be the gateway ip while changing the ip source to your target but leaving your mac as the source to spoof
+another packet would have the same values but the ips would be swapped between the source and destination ips
+when doing the sendp send an ethernet header with ARP (0x0806) defined first then send your arp packets one at a time ex sendp(a/b, iface="eth0") sendp(a/c, iface="eth0")
 
 
 
