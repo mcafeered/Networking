@@ -136,7 +136,7 @@ so for one of the packets your destination would be the gateway ip while changin
 another packet would have the same values but the ips would be swapped between the source and destination ips
 when doing the sendp send an ethernet header with ARP (0x0806) defined first then send your arp packets one at a time ex sendp(a/b, iface="eth0") sendp(a/c, iface="eth0")
 
-
+tcpdump -vv <what to filter for> makes the output more verbose while -X shows the hex dump 
 
 
 
