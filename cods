@@ -9,3 +9,4 @@ Password: password
 Password: password
 
 sudo scapy (which uses the python scripting language)
+use a=Ether() to set an ethernet to a variable, then use a.show() to show the ethernet or a.type=<value> to change the type value for example 
