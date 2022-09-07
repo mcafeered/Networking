@@ -92,3 +92,45 @@ TCP uses 3-way handshake to establish connection sending a SYN receiving a SYN/A
 
 SESSION LAYER
 OSI LAYER 5
+
+PROTOCOLS
+SOCKS
+NetBIOS
+PPTP/L2TP
+RPC
+
+SOCKS 4/5 (TCP 1080)
+Uses various Client / Server exchange messages
+Client can provide authentication to server
+Client can request connections from server
+
+PPTP (TCP 1723)
+
+L2TP (TCP 1701)
+
+SMB/CIFS (TCP 139/445 AND UDP 137/138)
+SMB Rides over Netbios
+Netbios Dgram Service - UDP 138
+Netbios Session Service - TCP 139
+SAMBA and CIFS are just flavors of SMB
+
+RPC (ANY PORT)
+RPC is a request/response protocol.
+User application will:
+Sends a request for information to a external server
+Receives the information from the external server
+Display collected data to User
+
+PRESENTATION LAYER
+OSI LAYER 6
+
+RESPONSIBILITIES
+Translation
+Formating
+Encoding (ASCII, EBCDIC, HEX, BASE64)
+Encryption (Symmetric or Asymmetric)
+Compression
+
+APPLICATION LAYER
+OSI LAYER 7
+
