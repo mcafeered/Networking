@@ -134,3 +134,117 @@ Compression
 APPLICATION LAYER
 OSI LAYER 7
 
+FTP (TCP 20/21)
+Messages:
+FTP Commands
+FTP Reply Codes
+Modes:
+Active (default)
+Passive
+
+FTP ACTIVE ISSUES
+NAT and Firewall traversal issues
+Complications with tunneling through SSH
+Passive FTP solves issues related to Active mode and is most often used in modern systems
+
+SSH (TCP 22)
+Messages provide:
+Client/server authentication
+Asymmetric or PKI for key exchange
+Symmetric for session
+User authentication
+Data stream channeling
+
+SSH ARCHITECTURE 1
+Server
+Client
+Session
+Keys
+User Key - Asymmetric public key used to identify the user to the server
+Host Key - Asymmetric public key used to identify the server to the user
+Session Key - Symmetric key created by the client
+
+SSH ARCHITECTURE 2
+Known-Hosts Database - collection of host keys that the client and server use for mutual authentication.
+Agent - Stores keys as a convenience for users (prevents constant passphrase entry prompt)
+Signer - signs the host-based authentication packets
+Random Seed - used for entropy in creating pseudo-random numbers
+Configuration File - settings that exist on the client and server to dictate configuration of ssh and sshd respectively
+
+SSH IMPLEMENTATION CONCERNS
+Using password authentication only
+Key rotation
+Key management
+Implementation specification (libssh, sshtrangerthings)
+
+TELNET (TCP 23)
+Messages:
+Telnet Commands
+Telnet options
+
+SMTP (TCP 25)
+Messages:
+SMTP Commands
+SMTP Responses
+
+TACACS (TCP 49) SIMPLE/EXTENDED
+
+HTTP(S) (TCP 80/443)
+Messages:
+Methods
+GET / HEAD / POST / PUT
+HTTP status Codes
+100, 200, 300, 400
+
+POP (TCP 110)
+Messages:
+POP Commands
+POP Replies
+POP Capabilities
+
+IMAP (TCP 143)
+Messages:
+IMAP Commands
+IMAP Status Response
+IMAP Capabilities
+
+RDP (TCP 3389)
+Compression or Encryption support
+Desktop size and color depth
+Keyboard Mapping
+Remote system control
+Mouse-cursor color properties.
+
+DNS (QUERY/RESPONSE) (TCP/UDP 53)
+
+DHCP (UDP 67/68)
+
+TFTP (UDP 69)
+Messages:
+TFTP Opcodes
+TFTP Error Codes
+
+NTP (UDP 123)
+
+RADIUS (UDP 1645/1646 AND 1812/1813)
+
+RTP (UDP ANY ABOVE 1023)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
