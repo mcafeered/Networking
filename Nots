@@ -67,6 +67,28 @@ Ethertypes
 NETWORK LAYER
 OSI LAYER 3
 
-IPv4 and IPv6 downloaded image
+IPv4, IPv6, and ICMP downloaded image
 
+TTL values can show what OS a packet was generated from 64 being Linux, 128 being windows, and 255 being cisco routers
 
+Fragmentation (IPv4) splits large amounts of data into multiple packets in order to send it all, turning on the fragmentation offset and and more fragments bit until the last packet which just has an offset
+
+ZERO CONFIGURATION (what happens to something that isnt configured)
+IPv4 Auto Configuration
+* APIPA
+* RFC 3927
+
+IPv6 auto configuration
+* SLAAC (StateLess Address Auto-configuration)
+* RFC 4862
+
+TRANSPORT LAYER
+OSI LAYER 4
+
+TCP and UDP header downloaded
+(for tcp flags read like trying to read binary from left to right)
+
+TCP uses 3-way handshake to establish connection sending a SYN receiving a SYN/ACK then responding with an ACK then tears down with two sets sent by both machines of FIN/ACK followed by ACK
+
+SESSION LAYER
+OSI LAYER 5
