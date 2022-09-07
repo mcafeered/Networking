@@ -187,7 +187,7 @@ Messages:
 SMTP Commands
 SMTP Responses
 
-TACACS (TCP 49) SIMPLE/EXTENDED
+TACACS (TCP 49) SIMPLE/EXTENDED (control logons)
 
 HTTP(S) (TCP 80/443)
 Messages:
@@ -230,21 +230,100 @@ RADIUS (UDP 1645/1646 AND 1812/1813)
 
 RTP (UDP ANY ABOVE 1023)
 
+SNMP (UDP 161/162)
+snmp
+7 Message Types
 
+Get Request
+Set Request
+Get Next
+Get Bulk
+Response
+Trap
+Inform
 
+CAPTURE LIBRARY
+What makes traffic capture possible?
+Libpcap
+WinPcap
+NPCAP
 
+WIRESHARK, TSHARK, TCPDUMP AND BPFS
 
+BERKELEY PACKET FILTERS (BPF)
+Requests a SOCK_RAW socket and setsockopt calls SO_ATTACH_FILTER
+sock = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_ALL))
+...
+setsockopt(sock, SOL_SOCKET, SO_ATTACH_FILTER, ...)
 
+BERKELEY PACKET FILTERS
+Using BPFs with operators, bitmasking, and TCPDump creates a powerful tool for traffic filtering and parsing.
 
+tcpdump {A} [B:C] {D} {E} {F} {G}
 
+A = Protocol (ether | arp | ip | ip6 | icmp | tcp | udp)
+B = Header Byte offset
+C = optional: Byte Length. Can be 1, 2 or 4 (default 1)
+D = optional: Bitwise mask (&)
+E = Operator (= | == | > | < | <= | >= | != | () | << | >>)
+F = Result of Expresion
+G = optional: Logical Operator (&& ||) to bridge expressions
+w = write to a given fileExample:
+tcpdump 'ether[12:2] = 0x0800 && (tcp[2:2] != 22 && tcp[2:2] != 23)'
 
+BITWISE MASKING
+To filter down to the bit(s) and not just the byte.
+ip[0] & 0x0F > 0x05
 
+FILTER LOGIC - MOST EXCLUSIVE
+All designated bit values must be set; no others can be set
+tcp[13] = 0x11
+--or--
+tcp[13] & 0xFF = 0x11
 
+FILTER LOGIC - LESS EXCLUSIVE
+All designated bits must be set; all others may be see
+tcp[13] & 0x11 = 0x11
 
+FILTER LOGIC - LEAST EXCLUSIVE
+At least one of the designated bits must be set to not equal 0; all others may be set
+tcp[13] & 0x11 !=0
 
+LAYER 2 SWITCHING TECHNOLOGIES
 
+SWITCH OPERATION
+Fast Forward - Only Destination MAC
+Fragment Free - First 64 bytes
+Store and Forward - Entire Frame and FCS
 
+CAM TABLE
+Learn - Examining the Source MAC Address
+Forward - Examining the Destination MAC Address
 
+VLANS AND IEEE 802.1Q
 
+IEEE 802.1AD "Q-IN-Q"
+
+SPANNING TREE PROTOCOL (STP)
+Root decision process
+1. Elect root Bridge
+2. Identify the Root ports on non-root bridge
+3. Identify the Designated port for each segment
+4. Set alternate ports to blocking state
+
+LAYER 2 DISCOVERY PROTOCOLS
+Cisco Discovery Protocol (CDP)
+Foundry Discovery Protocol (FDP)
+Link Layer Discovery Protocol(LLDP)
+
+DTP (DYNAMIC TRUNKING PROTOCOL)
+
+VTP (VLAN TRUNKING PROTOCOL)
+
+PORT SECURITY
+Modes
+shutdown
+restrict
+protect
 
 
