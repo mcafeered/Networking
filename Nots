@@ -326,4 +326,22 @@ shutdown
 restrict
 protect
 
+LAYER 3 ROUTING TECHNOLOGIES
+
+routers contain routing tables based off of networks that connect switches to each other
+
+METRICS
+Hop
+Bandwidth
+Delay
+Load
+MTU
+Reliability
+Cost
+Policy
+
+routing protocols are used to learn and advertise routeing tables while routed protocols are how user traffic is passed around
+
+administrative distance defines the importance of data being passed to the router
+
 
