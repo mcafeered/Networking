@@ -140,6 +140,8 @@ tcpdump -vv <what to filter for> makes the output more verbose while -X shows th
 
 STREAM SOCKET EXAMPLE CODE
 
+#!/usr/bin/env python3
+
 import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
