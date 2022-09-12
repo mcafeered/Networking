@@ -518,11 +518,24 @@ Example Syntax
 nmap [Options] [Target IP/ Subnet]
 nc [Options] [Target IP] [Target Port]
 
+============================= NETWORK MAPPING ==========================================
 
-
-
-
-
-
-
-
+ARP is not reliable to use for enumerating networks but ip a can be used to find other arp info on boxes you ssh into
+ssh into the router and view the config to begin enumeration
+once in the router use show int and show config to view interfaces and router configs
+use nmap <target ip> -Pn -p 21-25,80 to look at important ports for this class (can use -T5 to make it go faster if need be)
+can use anonymous ftp login to look at files on a box with that port open (doesnt always work)
+wget can be used when the http port is open like wget -r(grabs every file and putsit in a new directory on your machine) <target ip> which can be switched to ftp by doing wget ftp://<target ip> or <target ip>:<target port>(21 in this case)
+can use screenshot tool to crop out screenshots and paste them to your draw.io
+ssh can be used if you can get the credentials to get on the box for easy enumeration
+netcat can be used to banner grab with nc <target port> <ports to check> to look for sneaky hidden ports (basically they give ports fake names)
+even if you dont have all the details write down the information you do know for hosts
+can ssh to other ports using ssh <user>@<target ip> -p <port>
+once on a machine try to find out everything you can about said box like using the find command or hostname
+scp can be used to grab files from boxes and take them to your system by
+if the telnet banner is grabbed and shows weid symbols test out telnet to see if it works with telnet <target ip>
+if you banner grab an http on port 80 or whatever and it just sits there use the GET command to see if it responds with http info
+read pngs or jpgs using eom or eog
+./scan.sh can be used to do a netcat scan of a buncha ports
+ss -ntlp can be used to view open ports on a box
+dig <record type> @<dns server> zonetransfer.me
