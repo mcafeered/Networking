@@ -646,6 +646,11 @@ On Listener1 (receives info):
 nc -l -p 9001 > outfile.txt
 ==Writes the output to listener1 and listener2 through the named pipe==
 
+Another example
+nc -lp 1234 > 1steg.jpg (receive a file being sent over port 1234 on a relay)
+nc -lp 6969 > 2steg.jpg (send the end receiving box to listen on port for previosuly mentioned file)
+nc 10.50.35.85 6969 < 1steg.jpg (send the file once the listening port is set up)
+
 DESCRIBE COMMON METHODS FOR TRANSFERRING DATA
 TFTP
 FTP
