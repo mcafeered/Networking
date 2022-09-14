@@ -772,9 +772,33 @@ HTTP
 
 Reference Another_CTFD.mAp.drawio
 
+Recon Methodology
+1. Host Discovery (nmap, netcat, ./scan.sh, ping sweep)
+nmap -sn -T4 <ip range>(.13,14,15 or .25/27) -p <ports> | egrep -i "scan report|open"  
+2. Port/Service Discovery(nmap, netcat, ./scan.sh)
+3. Port Validate (aka Banner Grabbing (nc))
+4. Follow-on actions based on ports found
+4a. if its 22 or 23, connect to it and do Passive Recon
+4b. if its 21 or 80, wget -r <ip> or wget -r ftp://<ip> (pull files)
 
+Scanning Methodology
+1. Quick scan ports: 21-23, 80
+2. Scan specific ports based on hints/clues found 
+3. Well known ports: 0-1023
+4. Scan 1-10000
+5. 65336
 
+Passive Recon Methodology
+hostname
+ip a, ifconfig (interfaces and subnets)
+ arp -a, ip neigh neighbors (ip neigh | egrep -iv 'failed')
+ss -ntlp (other listening ports, maybe filtered?)
+ls /usr/cctc/share (File of interest)
+which tcpdump wireshark nmap telnet wget curl etc. Available tools
+use telnet and tcpdump to sniff out the creds on a new system
 
+Ping Sweep 
+for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &) ;done
 
 
 
