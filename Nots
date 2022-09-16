@@ -1112,9 +1112,12 @@ Multiconfig
 Tuning
 HIDS and File Integrity
 
+Snort must have a conf file at /etc/snort which has to reference a set of rules in the rules directory
 
+run Snort as a daemon using sudo snort -D -l /var/log/snort -c /etc/snort/snort.conf (must see a prompt to know it was started) when viewing the task you can see the command that was run to show conf and log files
+once snort is started check your set log file to see any alerts that are triggered (alert is a brief synopsis while the snort.log.{numbers} is the pcap with said rules that were triggered)
 
-
+sudo snort -r <pcap to read> -c /etc/snort/snort.conf to check if a pcap has any alerts
 
 
 
