@@ -1466,3 +1466,28 @@ What Type of list is this?
 What would it do?
 Where should it be placed (use diagram on previous slide)?
 What direction?
+
+IPTABLES / NFTABLES DEMONSTRATION
+
+sudo iptables -L to view the iptable chains (default table)
+sudo iptables -t nat -L to view the iptables NAT table chais
+sudo iptables -F flushs the iptable default ip table unless a -t is used to specify another table
+* DO NOT FLUSH UNTIL DEFAULT POLICY IS SET TO IMPLICIT ALLOW IN ORDER TO STILL ALLOW YOURSELF TO SSH *
+
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT create a rule on the INPUT chain with the protocol tcp to destination port 22 and have it ACCEPT said traffic (also do a --sport 22 to accept all ssh inputs)
+sudo iptables -P INPUT DROP sets the INPUT policy to drop which disables X11 which is what terminator uses
+sudo iptables -A INPUT -p tcp -m multiport --(s or d or neither for both)ports 22,6010,6011,6012 -m state --state NEW,ESTABLSIHED -j ACCEPT creates a rule in the default INPUT chain for multiple tcp ports when its a new or established connection 
+* MAKE SURE TO MAKE CHANGES TO BOTH INPUT AND OUTPUT CHAINS TO ACCOUNT FOR TRAFFIC MOVING IN AND OUT *
+
+sudo iptables -L --line shows the line numbers for the specific chain rules
+sudo iptables -D OUTPUT 4 deletes the line 4 chain rule in the OUTPUT chain
+
+
+
+
+
+
+
+
+
+
