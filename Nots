@@ -1500,4 +1500,38 @@ sudo iptables-restore < ipt.conf is used to restore an iptable from a file
 
 
 sudo which nft is used to see if nft is installed
+sudo nft add table ip CCTC this creates a new ipv4 table
+sudo nft list tables shows all tables on the machine
+sudo nft flush table ip CCTC clears everything in a given table
+sudo nft delete table ip CCTC deletes the named table
+
+sudo nft add chain ip CCTC input { type filter hook input(input for input output for output) priority 0 \; policy accept \; } this adds a chain to your table which filters input with priority 0 with the accept policy
+sudo nft add chain ip CCTC output { type filter hook output(input for input output for output) priority 0 \; policy accept \; } example of output chain
+sudo nft list ruleset is used to view chains in an nft table
+
+sudo nft add(or insert) rule ip CCTC input tcp dport 22 accept this creates a rule which accepts ssh as input on destination port 22 which is then copied for output along with a sport definition for both aswell
+sudo nft list chain ip CCTC output -ann which lists a specific chain with the -ann making it more readable
+sudo nft add rule ip CCTC input tcp sport {22, 6010, 6011, 6012} accept this is how you reference multiple ports when making your rules
+
+sudo nft add chain ip CCTC output(or input) { type filter hook output priority 0 \; policy drop \; } this is how you change the policy to drop
+sudo nft add rule ip CCTC input ip saddr 172.16.82.112 drop this drops traffic from the given ip on the input side 
+sudo nft add rule ip CCTC output ip daddr 172.16.82.112 drop this drops traffic from the given ip on the output side
+
+sudo nft add rule ip CCTC input position 4 ip saddr 172.16.82.112 drop this puts a rule in a specific area based off the handles that can be viewed using sudo nft list CHAIN ip CCTC output (or input) -ann 
+
+sudo nft delete rule ip CCTC input handle 8 this specifies a handle in a CHAIN to delete
+
+sudo nft add rule ip HEADER input ct state invalid drop - drop invalid packets
+
+sudo nft add rule ip HEADER input ip frag-off != 0 drop - drop fragmented packets
+
+sudo nft add rule ip HEADER input tcp flags syn limit rate 10/second accept - limit SYN requests to prevent SYN Flood
+
+sudo nft list ruleset > nft.rules writes your ruleset to a file
+
+sudo nft flush table flushes CCTC table
+
+sudo nft -f nft.rules restores ruleset from a file
+
+
 
