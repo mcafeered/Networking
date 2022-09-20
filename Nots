@@ -1485,9 +1485,19 @@ sudo iptables -D OUTPUT 4 deletes the line 4 chain rule in the OUTPUT chain
 sudo iptables -I INPUT -s 172.16.82.106 -j DROP (also do for output as the destination ip) the -I puts the rule at the top of the chain and doesn't allow traffic coming from 172.16.82.106 to go through the firewall
 * -A puts the rule at the end of the chain while -I puts the rule at the top *
 
+sudo iptables -L -v is used for connection tracking to see what traffic is being sent and received over your set rules
+
+for CHAIN in INPUT OUTPUT FORWARD;do sudo iptables -P $CHAIN ACCEPT(or drop);done basic script to change all policies at once
+
+sudo iptables -A INPUT -m state INVALID -j DROP this drops invalid fragments (not belonging to any connections)
+
+sudo iptables -A INPUT -f -j DROP this drops fragments
+
+sudo iptables -A INPUT -i eth0 -p tcp --syn -m limit --limit 10/second -j ACCEPT this throttles(only allows so many packets)SYN packets to prevent SYN flood attacks
+
+sudo iptables-save > ipt.conf is used to save a iptable to a file
+sudo iptables-restore < ipt.conf is used to restore an iptable from a file
 
 
-
-
-
+sudo which nft is used to see if nft is installed
 
