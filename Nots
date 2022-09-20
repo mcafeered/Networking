@@ -1482,8 +1482,8 @@ sudo iptables -A INPUT -p tcp -m multiport --(s or d or neither for both)ports 2
 sudo iptables -L --line shows the line numbers for the specific chain rules
 sudo iptables -D OUTPUT 4 deletes the line 4 chain rule in the OUTPUT chain
 
-
-
+sudo iptables -I INPUT -s 172.16.82.106 -j DROP (also do for output as the destination ip) the -I puts the rule at the top of the chain and doesn't allow traffic coming from 172.16.82.106 to go through the firewall
+* -A puts the rule at the end of the chain while -I puts the rule at the top *
 
 
 
